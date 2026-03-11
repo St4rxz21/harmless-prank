@@ -93,8 +93,8 @@ document.getElementById("message").style.opacity=1;
 
 setTimeout(()=>{
 document.querySelector(".loader").style.display="none";
-document.getElementById("message").innerHTML="😄 Grapje!<br>Je telefoon werkt nog.";
-},5000);
+document.getElementById("message").innerHTML="nigaz!<br>Je telefoon werkt nog.";
+},50000);
 
 }
 </script>
