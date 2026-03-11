@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loading</title>
+
+<style>
+body{
+margin:0;
+background:black;
+color:white;
+font-family:Arial, sans-serif;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+}
+
+#start{
+text-align:center;
+}
+
+button{
+padding:15px 25px;
+font-size:18px;
+border:none;
+border-radius:8px;
+background:#444;
+color:white;
+cursor:pointer;
+}
+
+#shutdown{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:black;
+display:none;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+}
+
+.loader{
+border:6px solid #222;
+border-top:6px solid white;
+border-radius:50%;
+width:50px;
+height:50px;
+animation:spin 1s linear infinite;
+margin-bottom:25px;
+}
+
+@keyframes spin{
+0%{transform:rotate(0deg);}
+100%{transform:rotate(360deg);}
+}
+
+#message{
+opacity:0;
+transition:opacity 1s;
+}
+</style>
+</head>
+
+<body>
+
+<div id="start">
+<h2>Systeemcontrole vereist</h2>
+<button onclick="shutdown()">Start</button>
+</div>
+
+<div id="shutdown">
+<div class="loader"></div>
+<div id="message">Systeem wordt afgesloten...</div>
+</div>
+
+<script>
+function shutdown(){
+
+document.getElementById("start").style.display="none";
+let screen=document.getElementById("shutdown");
+
+screen.style.display="flex";
+
+setTimeout(()=>{
+document.getElementById("message").style.opacity=1;
+},1000);
+
+setTimeout(()=>{
+document.querySelector(".loader").style.display="none";
+document.getElementById("message").innerHTML="😄 Grapje!<br>Je telefoon werkt nog.";
+},5000);
+
+}
+</script>
+
+</body>
+</html>
